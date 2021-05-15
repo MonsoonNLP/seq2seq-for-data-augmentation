@@ -44,5 +44,13 @@ replace_sequenced(
 
 If randomly selected, the input ```["La maestra es tonta", 1]``` will be replaced with ```["el maestro es tonto", 1]```.
 
+## Applied
+
+Working with SimpleTransformers to see if appending or replacing rows
+improves accuracy of classifiers:
+
+https://colab.research.google.com/drive/194ITDA1AjxAx_4ZLjoRFQI1aWzsl7xU8?usp=sharing
+
+## License
 
 Open source, MIT license
