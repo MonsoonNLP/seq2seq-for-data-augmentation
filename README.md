@@ -1,6 +1,6 @@
 # seq2seq-for-data-augmentation
 
-Kit of functions to help do this with datasets
+Kit of functions to help modify a text dataset, with a seq2seq model
 
 ## Features
 
@@ -8,8 +8,8 @@ Kit of functions to help do this with datasets
 
 Send the encoder and decoder model names from HuggingFace,
 the data as an array ```[[txt1, label1], [txt2, label2]]```,
-probability of flipping a row (default is 0.5),
-and whether to append an identical row (default is False)
+frequency of flipping a row (default is 0.5),
+and whether to append a row if it came out identical to the original (default is False)
 
 
 ```python
@@ -31,7 +31,7 @@ will be included, unmodified.
 
 Send the encoder and decoder model names from HuggingFace,
 the data as an array ```[[txt1, label1], [txt2, label2]]```,
-and probability of flipping a row (default is 0.5)
+and frequency of flipping a row (default is 0.5)
 
 ```python
 replace_sequenced(

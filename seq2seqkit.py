@@ -2,7 +2,7 @@ from random import random
 from transformers import AutoTokenizer, EncoderDecoderModel
 
 def prep(encoder_model, decoder_model):
-	tokenizer = AutoTokenizer.from_pretrained(model_name)
+	tokenizer = AutoTokenizer.from_pretrained(encoder_model)
 	model = EncoderDecoderModel.from_encoder_decoder_pretrained(
 		encoder_model,
 		decoder_model,
