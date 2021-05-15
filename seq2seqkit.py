@@ -33,7 +33,7 @@ def generate(tokenizer, model, input_ids, input_labels, always_append):
 
 def apply_sequenced(pattern, encoder_model, decoder_model, trainrows, frequency, always_append):
 	if pattern == "append":
-		finalrows = trainrows
+		finalrows = trainrows.copy()
 	else:
 		finalrows = []
 	input_ids = []
