@@ -1,8 +1,8 @@
 from random import random
 from transformers import AutoTokenizer, EncoderDecoderModel
 
-def prep(encoder_model, decoder_model):
-	tokenizer = AutoTokenizer.from_pretrained(encoder_model)
+def prep(encoder_model, decoder_model, seq_length):
+	tokenizer = AutoTokenizer.from_pretrained(encoder_model, model_max_length=seq_length)
 	model = EncoderDecoderModel.from_encoder_decoder_pretrained(
 		encoder_model,
 		decoder_model,
@@ -31,7 +31,7 @@ def generate(tokenizer, model, input_ids, input_labels, always_append):
 		g_dex += 1
 	return myrows
 
-def apply_sequenced(pattern, encoder_model, decoder_model, trainrows, frequency, always_append):
+def apply_sequenced(pattern, encoder_model, decoder_model, trainrows, seq_length, frequency, always_append):
 	if pattern == "append":
 		finalrows = trainrows.copy()
 	else:
@@ -40,7 +40,7 @@ def apply_sequenced(pattern, encoder_model, decoder_model, trainrows, frequency,
 	input_txts = []
 	input_labels = []
 
-	tokenizer, model = prep(encoder_model, decoder_model)
+	tokenizer, model = prep(encoder_model, decoder_model, seq_length)
 	for row in trainrows:
 		rowtxt = row[0]
 		rowlabel = row[1]
@@ -69,8 +69,8 @@ def apply_sequenced(pattern, encoder_model, decoder_model, trainrows, frequency,
 
 	return finalrows
 
-def append_sequenced(encoder_model, decoder_model, trainrows, frequency=0.5, always_append=False):
-	return apply_sequenced("append", encoder_model, decoder_model, trainrows, frequency, always_append)
+def append_sequenced(encoder_model, decoder_model, trainrows, seq_length=512, frequency=0.5, always_append=False):
+	return apply_sequenced("append", encoder_model, decoder_model, trainrows, seq_length, frequency, always_append)
 
-def replace_sequenced(encoder_model, decoder_model, trainrows, frequency=0.5):
-	return apply_sequenced("replace", encoder_model, decoder_model, trainrows, frequency, True)
+def replace_sequenced(encoder_model, decoder_model, trainrows, seq_length=512, frequency=0.5):
+	return apply_sequenced("replace", encoder_model, decoder_model, trainrows, seq_length, frequency, True)
