@@ -60,8 +60,8 @@ If randomly selected, the input ```["La maestra es tonta", 1]``` will be replace
 
 ## Applied
 
-Working with SimpleTransformers to see if appending or replacing rows
-improves accuracy of classification or regression tasks:
+Working with SimpleTransformers to show data augmentation 
+improves accuracy of classification and regression tasks:
 
 https://colab.research.google.com/drive/194ITDA1AjxAx_4ZLjoRFQI1aWzsl7xU8?usp=sharing
 
